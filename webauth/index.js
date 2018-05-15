@@ -109,6 +109,9 @@ export default class WebAuth {
    * @memberof WebAuth
    */
   clearSession(options = {}) {
+    /**
+    Commenting out the ios check in order to target Android devices
+
     if (Platform.OS !== 'ios') {
       return Promise.reject(new AuthError({
         json: {
@@ -118,6 +121,7 @@ export default class WebAuth {
         status: 0
       }));
     }
+    **/
     const { client, agent } = this;
     const federated = options.federated || false;
     const logoutUrl = client.logoutUrl(options);
